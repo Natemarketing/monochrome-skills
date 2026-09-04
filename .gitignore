@@ -1,0 +1,8 @@
+# Downloaded skill bundles - unzip them into skills/ instead of committing the archive
+*.skill
+*.zip
+
+# OS noise
+Thumbs.db
+desktop.ini
+.DS_Store

@@ -40,6 +40,7 @@ it is not a match.
 | A plan that needs pressure-testing before building | `grill-me` |
 | Ending a session, handing work to the next one | `handoff` |
 | A long mechanical run where output volume is the cost | `caveman` |
+| Add, update, edit, fix or write a skill | `skill-shipper` |
 
 ## Always-on, no announcement needed
 

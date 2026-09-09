@@ -2,6 +2,10 @@
 *.skill
 *.zip
 
+# Where the Claude desktop app drops chat downloads when this folder is connected.
+# drop.ps1 reads from here; never commit it.
+Claude outputs/
+
 # OS noise
 Thumbs.db
 desktop.ini

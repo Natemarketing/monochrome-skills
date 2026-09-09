@@ -8,8 +8,11 @@
 #   powershell -ExecutionPolicy Bypass -File drop.ps1
 #   powershell -ExecutionPolicy Bypass -File drop.ps1 -m "commit message"
 #   powershell -ExecutionPolicy Bypass -File drop.ps1 -from "D:\somewhere"
+#
+# Looks in "<repo>\Claude outputs" (where the Claude desktop app saves chat
+# downloads when this folder is connected) and in ~/Downloads.
 
-param([string]$m = "", [string]$from = "$HOME\Downloads")
+param([string]$m = "", [string]$from = "")
 
 $ErrorActionPreference = 'Continue'
 $repo = $PSScriptRoot
@@ -18,10 +21,19 @@ $ship = Join-Path $repo 'ship.ps1'
 $shipArgs = @{}
 if ($m) { $shipArgs['m'] = $m }
 
-$files = Get-ChildItem -Path $from -Filter '*.SKILL.md' -File -ErrorAction SilentlyContinue |
-         Sort-Object LastWriteTime
+# Where to look: the Claude desktop app drops chat downloads into "Claude outputs"
+# inside the connected folder (this repo); the browser drops into ~/Downloads.
+$places = @()
+if ($from) { $places += $from }
+else { $places += (Join-Path $repo 'Claude outputs'); $places += "$HOME\Downloads" }
+
+$files = @()
+foreach ($p in $places) {
+    $files += Get-ChildItem -Path $p -Filter '*.SKILL.md' -File -ErrorAction SilentlyContinue
+}
+$files = $files | Sort-Object LastWriteTime
 if (-not $files) {
-    Write-Host "No *.SKILL.md files in $from - nothing to drop."
+    Write-Host ("No *.SKILL.md files in " + ($places -join ' or ') + " - nothing to drop.")
     Write-Host "Running ship.ps1 anyway in case the repo already has changes."
     & $ship @shipArgs
     exit $LASTEXITCODE

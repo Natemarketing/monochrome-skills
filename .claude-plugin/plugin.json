@@ -1,8 +1,8 @@
 {
   "name": "monochrome",
   "displayName": "Monochrome House Skills",
-  "version": "1.0.0",
-  "description": "Nate's house skills: Cam's voice, WordPress and staging method, writing quality, adversarial review, doc format.",
+  "version": "1.1.0",
+  "description": "Nate's full skill stack: house method and voice skills plus a vendored set of third-party skills, pinned so every machine gets the same thing.",
   "author": {
     "name": "Nate McLennan",
     "email": "n8mcln@gmail.com"

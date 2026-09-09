@@ -4,3 +4,121 @@
 
 --- stage
 > git add -A
+warning: in the working copy of 'setup-log.txt', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'setup-log-2.txt', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'setup-skills.ps1', LF will be replaced by CRLF the next time Git touches it
+exit=0
+
+--- commit
+> git commit -m Phase 2 setup script
+[main 5cc828b] Phase 2 setup script
+ 4 files changed, 510 insertions(+)
+ create mode 100644 setup-log-2.txt
+ create mode 100644 setup-skills.ps1
+ create mode 100644 skills/skill-router/SKILL.md
+exit=0
+
+--- set-url
+> git remote set-url origin https://github.com/Natemarketing/monochrome-skills.git
+
+exit=0
+(a browser window may open once for GitHub sign-in - that is Git Credential Manager)
+
+--- push
+> git push -u origin main
+To https://github.com/Natemarketing/monochrome-skills.git
+   3dac124..5cc828b  main -> main
+branch 'main' set up to track 'origin/main'.
+exit=0
+
+=========== OWN MARKETPLACE ===========
+
+--- remove stale
+> claude plugin marketplace remove monochrome-skills
+claude.exe : ✘ Failed to remove marketplace: 
+Marketplace 'monochrome-skills' not found
+At C:\Users\n8mcl\monochrome-skills\setup-skill
+s.ps1:31 char:16
++         $out = & $exe @argv 2>&1 | Out-String
++                ~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (✘ 
+    Failed to rem...ills' not found:String) [  
+  ], RemoteException
+    + FullyQualifiedErrorId : NativeCommandErr 
+   or
+exit=1
+
+--- add (https)
+> claude plugin marketplace add https://github.com/Natemarketing/monochrome-skills.git
+Adding marketplace…Refreshing marketplace cache (timeout: 120s)…
+Cloning repository (timeout: 120s): https://github.com/Natemarketing/monochrome-skills.git
+Clone complete, validating marketplace…
+Cleaning up old marketplace cache…
+✔ Successfully added marketplace: monochrome-skills (declared in user settings)
+exit=0
+
+--- install
+> claude plugin install monochrome@monochrome-skills
+Installing plugin "monochrome@monochrome-skills"...✔ Successfully installed plugin: monochrome@monochrome-skills (scope: user)
+exit=0
+
+--- plugin list
+> claude plugin list
+Installed plugins:
+
+  ❯ monochrome@monochrome-skills
+    Version: 1.0.0
+    Scope: user
+    Status: ✔ enabled
+exit=0
+
+=========== CLAUDE-SEO ===========
+
+--- install claude-seo
+> claude plugin install claude-seo@agricidaniel-claude-seo
+Installing plugin "claude-seo@agricidaniel-claude-seo"...✔ Successfully installed plugin: claude-seo@agricidaniel-claude-seo (scope: user)
+exit=0
+
+=========== ANTHROPIC SKILLS SOURCE ===========
+
+--- clone anthropics
+> git clone --depth 1 https://github.com/anthropics/skills.git C:\Users\n8mcl\AppData\Local\Temp\mm-skills-src\anthropics
+Cloning into 'C:\Users\n8mcl\AppData\Local\Temp\mm-skills-src\anthropics'...
+exit=0
+
+=========== COPY PICKED SKILLS ===========
+  OK    grill-me               2 file(s)   <- mattpocock\skills\productivity\grill-me
+  OK    handoff                2 file(s)   <- mattpocock\skills\productivity\handoff
+  OK    caveman                4 file(s)   <- caveman\plugins\caveman\skills\caveman
+  OK    caveman-compress       8 file(s)   <- caveman\plugins\caveman\skills\caveman-compress
+  OK    caveman-stats          1 file(s)   <- caveman\plugins\caveman\skills\caveman-stats
+  OK    cavecrew               1 file(s)   <- caveman\plugins\caveman\skills\cavecrew
+  OK    content-strategy       4 file(s)   <- marketingskills\skills\content-strategy
+  OK    marketing-psychology   2 file(s)   <- marketingskills\skills\marketing-psychology
+  OK    customer-research      4 file(s)   <- marketingskills\skills\customer-research
+  OK    offers                 10 file(s)   <- marketingskills\skills\offers
+  OK    site-architecture      5 file(s)   <- marketingskills\skills\site-architecture
+  OK    webapp-testing         6 file(s)   <- anthropics\skills\webapp-testing
+
+copied 12 of 12
+
+=========== HOUSE SKILLS CHECK ===========
+monochrome plugin installed - house skills come from the plugin, not copied
+
+=========== FINAL ~/.claude/skills ===========
+  cavecrew
+  caveman
+  caveman-compress
+  caveman-stats
+  content-strategy
+  customer-research
+  grill-me
+  handoff
+  marketing-psychology
+  offers
+  site-architecture
+  synced
+  webapp-testing
+
+=========== DONE - phase 2 ===========
+Log: C:\Users\n8mcl\monochrome-skills\setup-log-2.txt

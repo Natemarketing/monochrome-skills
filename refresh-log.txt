@@ -1,0 +1,59 @@
+﻿refresh third-party - 2026-09-09T09:20:21
+
+=========== SOURCES ===========
+
+--- pull mattpocock
+> git -C C:\Users\n8mcl\AppData\Local\Temp\mm-skills-src\mattpocock pull --ff-only
+Already up to date.
+exit=0
+
+--- pull caveman
+> git -C C:\Users\n8mcl\AppData\Local\Temp\mm-skills-src\caveman pull --ff-only
+Already up to date.
+exit=0
+
+--- pull marketingskills
+> git -C C:\Users\n8mcl\AppData\Local\Temp\mm-skills-src\marketingskills pull --ff-only
+Already up to date.
+exit=0
+
+--- pull anthropics
+> git -C C:\Users\n8mcl\AppData\Local\Temp\mm-skills-src\anthropics pull --ff-only
+Already up to date.
+exit=0
+
+=========== VENDOR INTO repo\skills ===========
+  OK    grill-me
+  OK    handoff
+  OK    caveman
+  OK    caveman-compress
+  OK    caveman-stats
+  OK    cavecrew
+  OK    content-strategy
+  OK    marketing-psychology
+  OK    customer-research
+  OK    offers
+  OK    site-architecture
+  OK    webapp-testing
+
+vendored 12 of 12
+
+=========== REMOVE LOOSE COPIES FROM ~/.claude/skills ===========
+(the plugin now provides these - a personal copy would shadow it)
+  removed  grill-me
+  removed  handoff
+  removed  caveman
+  removed  caveman-compress
+  removed  caveman-stats
+  removed  cavecrew
+  removed  content-strategy
+  removed  marketing-psychology
+  removed  customer-research
+  removed  offers
+  removed  site-architecture
+  removed  webapp-testing
+
+=========== COMMIT AND PUSH ===========
+
+--- stage
+> git add -A

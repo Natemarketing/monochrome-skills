@@ -110,7 +110,9 @@ try {
     $newVer = $parts -join '.'
     Say ("  " + $j.version + " -> " + $newVer)
     $j.version = $newVer
-    $j | ConvertTo-Json -Depth 10 | Set-Content -Path $manifest -Encoding utf8
+    # UTF8Encoding($false) = no BOM. Set-Content -Encoding utf8 adds one on
+    # Windows PowerShell 5.1 and a BOM makes this manifest unparseable.
+    [System.IO.File]::WriteAllText($manifest, ($j | ConvertTo-Json -Depth 10), (New-Object System.Text.UTF8Encoding($false)))
 } catch { Say ("  FAILED to bump: " + $_) }
 
 # ---------------------------------------------------------------- ship

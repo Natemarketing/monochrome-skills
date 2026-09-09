@@ -12,7 +12,8 @@ Editing a skill anywhere else creates a second version that silently drifts.
 ## The job
 
 1. Write or edit the file at `C:\Users\n8mcl\monochrome-skills\skills\<name>\SKILL.md`.
-2. Hand Nate the ship command. One line, unchanged every time.
+2. Hand Nate the ship command, or the drop command if the file went out as a
+   download. One line, unchanged every time.
 
 Nothing else. Do not walk him through git, do not explain the version bump, do not
 list the propagation steps. `ship.ps1` does all of it and prints its own summary.
@@ -32,19 +33,36 @@ shipped broken once because it called `grilling`, which was not vendored.
 
 ## Getting the file into the repo
 
-Write it directly if this session can reach his machine. Otherwise output the full
-SKILL.md in one code block and tell him the exact path to save it to.
+Two routes. Pick by whether the session can write to his machine.
+
+**Linked to his computer (folder `~/monochrome-skills` granted):** write the file
+straight to `skills\<name>\SKILL.md`, then hand him the ship command.
+
+**Not linked, or the bridge is flaky:** send the file into the chat as a download
+named `<name>.SKILL.md` (for example `wp-staging-sync.SKILL.md`), then hand him the
+drop command. `drop.ps1` picks every `*.SKILL.md` out of his Downloads, moves each one
+to `skills\<name>\SKILL.md`, and runs `ship.ps1`. Several skills in one pass is fine;
+the filename is the routing. Never paste a whole SKILL.md into the chat as a code block
+for him to save by hand.
 
 ## The command
 
-Always end with exactly this, in its own block:
+Always end with exactly one of these, in its own block, nothing after it.
+
+Wrote the file to the repo yourself:
 
 ```
 powershell -ExecutionPolicy Bypass -File "$HOME\monochrome-skills\ship.ps1"
 ```
 
-Add `-m "message"` only if he asked for a specific commit message. It derives one
-from the folders touched otherwise.
+Sent the file as a chat download:
+
+```
+powershell -ExecutionPolicy Bypass -File "$HOME\monochrome-skills\drop.ps1"
+```
+
+Add `-m "message"` only if he asked for a specific commit message. Both scripts derive
+one from the folders touched otherwise.
 
 ## Rules
 

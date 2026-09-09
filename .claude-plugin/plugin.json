@@ -1,7 +1,7 @@
 {
     "name":  "monochrome",
     "displayName":  "Monochrome House Skills",
-    "version":  "1.1.6",
+    "version":  "1.1.7",
     "description":  "Nate\u0027s full skill stack: house method and voice skills plus a vendored set of third-party skills, pinned so every machine gets the same thing.",
     "author":  {
                    "name":  "Nate McLennan",

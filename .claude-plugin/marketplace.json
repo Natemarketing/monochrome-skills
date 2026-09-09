@@ -1,18 +1,27 @@
 {
-  "name": "monochrome-skills",
-  "owner": {
-    "name": "Nate McLennan",
-    "email": "n8mcln@gmail.com"
-  },
-  "plugins": [
-    {
-      "name": "monochrome",
-      "source": "./",
-      "displayName": "Monochrome House Skills",
-      "description": "Nate's house skills: Cam's voice, WordPress and staging method, writing quality, adversarial review, doc format.",
-      "author": { "name": "Nate McLennan" },
-      "category": "workflow",
-      "keywords": ["seo", "wordpress", "divi", "monochrome", "writing"]
-    }
-  ]
+    "name":  "monochrome-skills",
+    "owner":  {
+                  "name":  "Nate McLennan",
+                  "email":  "n8mcln@gmail.com"
+              },
+    "plugins":  [
+                    {
+                        "name":  "monochrome",
+                        "source":  "./",
+                        "version":  "1.1.7",
+                        "displayName":  "Monochrome House Skills",
+                        "description":  "Nate\u0027s house skills: Cam\u0027s voice, WordPress and staging method, writing quality, adversarial review, doc format.",
+                        "author":  {
+                                       "name":  "Nate McLennan"
+                                   },
+                        "category":  "workflow",
+                        "keywords":  [
+                                         "seo",
+                                         "wordpress",
+                                         "divi",
+                                         "monochrome",
+                                         "writing"
+                                     ]
+                    }
+                ]
 }

@@ -16,6 +16,7 @@ $env:GIT_REDIRECT_STDERR = '2>&1'
 
 $repo     = $PSScriptRoot
 $manifest = Join-Path $repo '.claude-plugin\plugin.json'
+$market   = Join-Path $repo '.claude-plugin\marketplace.json'
 Set-Location $repo
 
 # ---------------------------------------------------------------- what changed
@@ -50,6 +51,17 @@ try {
     # UTF8Encoding($false) = no BOM. Set-Content -Encoding utf8 adds one on
     # Windows PowerShell 5.1 and a BOM makes this manifest unparseable.
     [System.IO.File]::WriteAllText($manifest, ($j | ConvertTo-Json -Depth 10), (New-Object System.Text.UTF8Encoding($false)))
+
+    # Cowork reads the plugin's version from marketplace.json, not plugin.json.
+    # With no version there it shows 1.0.0 forever and the Update button stays grey.
+    $mk = Get-Content $market -Raw | ConvertFrom-Json
+    foreach ($pl in $mk.plugins) {
+        if ($pl.name -eq $j.name) {
+            if ($pl.PSObject.Properties['version']) { $pl.version = $newVer }
+            else { $pl | Add-Member -NotePropertyName version -NotePropertyValue $newVer }
+        }
+    }
+    [System.IO.File]::WriteAllText($market, ($mk | ConvertTo-Json -Depth 10), (New-Object System.Text.UTF8Encoding($false)))
 } catch {
     Write-Host ("Could not bump version: " + $_)
 }

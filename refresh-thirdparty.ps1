@@ -53,6 +53,7 @@ Say "=========== VENDOR INTO repo\skills ==========="
 
 $picks = @(
     @{ name='grill-me';             from='mattpocock';      path='skills\productivity\grill-me' },
+    @{ name='grilling';             from='mattpocock';      path='skills\productivity\grilling' },
     @{ name='handoff';              from='mattpocock';      path='skills\productivity\handoff' },
     @{ name='caveman';              from='caveman';         path='plugins\caveman\skills\caveman' },
     @{ name='caveman-compress';     from='caveman';         path='plugins\caveman\skills\caveman-compress' },
@@ -97,6 +98,20 @@ foreach ($p in $picks) {
     $loose = Join-Path $skillsDir $p.name
     if (Test-Path $loose) { Remove-Item -Path $loose -Recurse -Force; Say ("  removed  " + $p.name) }
 }
+
+# ---------------------------------------------------------------- version bump
+Say ""
+Say "=========== BUMP PLUGIN VERSION ==========="
+$manifest = Join-Path $repo '.claude-plugin\plugin.json'
+try {
+    $j = Get-Content $manifest -Raw | ConvertFrom-Json
+    $parts = $j.version.Split('.')
+    $parts[2] = [string]([int]$parts[2] + 1)
+    $newVer = $parts -join '.'
+    Say ("  " + $j.version + " -> " + $newVer)
+    $j.version = $newVer
+    $j | ConvertTo-Json -Depth 10 | Set-Content -Path $manifest -Encoding utf8
+} catch { Say ("  FAILED to bump: " + $_) }
 
 # ---------------------------------------------------------------- ship
 Say ""

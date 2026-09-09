@@ -1,13 +1,19 @@
-{
-  "name": "monochrome",
-  "displayName": "Monochrome House Skills",
-  "version": "1.1.0",
-  "description": "Nate's full skill stack: house method and voice skills plus a vendored set of third-party skills, pinned so every machine gets the same thing.",
-  "author": {
-    "name": "Nate McLennan",
-    "email": "n8mcln@gmail.com"
-  },
-  "repository": "https://github.com/Natemarketing/monochrome-skills",
-  "keywords": ["seo", "wordpress", "divi", "monochrome", "writing"],
-  "defaultEnabled": true
+﻿{
+    "name":  "monochrome",
+    "displayName":  "Monochrome House Skills",
+    "version":  "1.1.1",
+    "description":  "Nate\u0027s full skill stack: house method and voice skills plus a vendored set of third-party skills, pinned so every machine gets the same thing.",
+    "author":  {
+                   "name":  "Nate McLennan",
+                   "email":  "n8mcln@gmail.com"
+               },
+    "repository":  "https://github.com/Natemarketing/monochrome-skills",
+    "keywords":  [
+                     "seo",
+                     "wordpress",
+                     "divi",
+                     "monochrome",
+                     "writing"
+                 ],
+    "defaultEnabled":  true
 }

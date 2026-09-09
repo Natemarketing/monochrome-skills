@@ -1,0 +1,13 @@
+{
+  "name": "monochrome",
+  "displayName": "Monochrome House Skills",
+  "version": "1.0.0",
+  "description": "Nate's house skills: Cam's voice, WordPress and staging method, writing quality, adversarial review, doc format.",
+  "author": {
+    "name": "Nate McLennan",
+    "email": "n8mcln@gmail.com"
+  },
+  "repository": "https://github.com/Natemarketing/monochrome-skills",
+  "keywords": ["seo", "wordpress", "divi", "monochrome", "writing"],
+  "defaultEnabled": true
+}

@@ -1,0 +1,33 @@
+﻿monochrome-skills setup - 2026-09-08T22:49:58
+repo: C:\Users\n8mcl\monochrome-skills
+
+=========== PREFLIGHT ===========
+  git      OK   git version 2.54.0.windows.1
+  gh       MISSING
+  claude   OK   2.1.266 (Claude Code)
+  node     MISSING
+  npm      MISSING
+
+=========== GIT ===========
+
+--- branch
+> git rev-parse --abbrev-ref HEAD
+main
+exit=0
+
+--- remotes
+> git remote -v
+
+exit=0
+
+--- status
+> git status --short
+ M README.md
+?? .claude-plugin/
+?? .gitattributes
+?? setup-log.txt
+?? setup-sync.ps1
+exit=0
+
+--- stage
+> git add -A

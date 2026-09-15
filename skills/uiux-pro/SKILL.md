@@ -34,6 +34,10 @@ Hero (one promise, one CTA) → supporting copy (the "why believe it") → socia
 - Forms tested to your own email before handoff. Address identical to the Google listing.
 - Only paste from the content doc, paste unformatted, re-apply bolds manually. Styling artifacts from rich paste are a recurring defect.
 
+## Wireframes go on a canvas
+
+When the deliverable is the wireframe itself (structure before the mock), load `design-canvas-wireframe` and build it as desktop and mobile artboards on a design canvas, not as a prompt or a loose HTML file. The rules above still govern what goes on the artboards.
+
 ## Step 5: Verify visually
 
 Never ship a page judged only from its code. Where a browser sandbox exists (Cowork or Claude Code), render it with Playwright and the preinstalled Chromium: load the page, screenshot desktop AND a ~390px mobile viewport, read the screenshots, and check hierarchy, flips, overflow, and contrast with your eyes. For artifacts, open the HTML the same way. In an environment without a browser, log visual QA as an open item with an owner instead of silently skipping it. The screenshot is the QA record; a page that was never looked at was never QA'd.

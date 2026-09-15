@@ -25,8 +25,11 @@ it is not a match.
 | --- | --- |
 | A URL, a site, WordPress, Divi, schema, JSON-LD, Rank Math, metas, redirects, sitemaps, plugins, an audit | `wp-dev-engine` |
 | Push to live, push to staging, backwards sync, .wpress, AIO, UpdraftPlus, Divi JSON import, two environments drifted | `wp-staging-sync` |
+| Compress images, image compression, shrink the images, WP-Optimize, reSmush, image weight, optimize the media library | `wp-image-compression` |
 | Cam will see it, grade it, or it is going in his voice; a client deliverable, deck, wireframe, page copy, Slack update to him | `cams-way` |
 | Any prose a human reads - copy, email, brief, audit narrative, caption, commit message | `stop-slop` |
+| Wireframe, wireframe it, canvas, low-fi, block out the page, see the structure before the prompt | `design-canvas-wireframe` |
+| A Claude Design prompt, page mock, hi-fi build or v2/v3 revision of a Claude Design canvas | `claude-design-prompt` |
 | A page, layout, hero, wireframe, mockup, conversion, mobile styling, "make it look better" | `uiux-pro` |
 | Before shipping anything a client or Cam judges; "review this", "tear this apart", "is this good" | `the-council` |
 | A build, migration, pipeline, new deliverable type, or a plan that runs more than a few steps; something broke | `superpowers-lite` |
@@ -58,6 +61,14 @@ it is not a match.
 - Two skills covering the same ground. `wp-dev-engine` beats `claude-seo` on
   schema; `claude-seo` beats `wp-dev-engine` on keyword and GSC data.
   `stop-slop` beats `copy-editing`. `uiux-pro` beats any other design skill.
+- The built-in `design` skill on its own. It fires on the same words as
+  `design-canvas-wireframe` and carries none of Cam's numbers. Only
+  `design-canvas-wireframe` loads it, for the canvas machinery.
+- `design-canvas-wireframe` and `claude-design-prompt` on the same request.
+  "Wireframe" goes to the canvas; "prompt", "mock" or a revision of an existing
+  Claude Design canvas goes to the prompt. Once the wireframe is settled, the
+  prompt skill takes over and attaches the export.
+- `wp-dev-engine` or `claude-seo` on an image compression run. `wp-image-compression` carries the whole method; `claude-seo` image checks are audits, not the compression pass.
 - Anything on a one-line factual question.
 
 ## Conflicts

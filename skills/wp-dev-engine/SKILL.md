@@ -1,6 +1,6 @@
 ---
 name: wp-dev-engine
-description: The house method for all WordPress, Webflow, and Shopify development and technical SEO work. Use this skill for ANY task touching a website - audits, remediation plans, schema deployments (JSON-LD), migrations, page rebuilds, meta corrections, redirects, staging/live pushes, plugin updates, launch checklists, WP REST API scripts, or QA of a live site. Also use when the user mentions Divi, Rank Math, All-in-One WP Migration, staging, slugs, sitemaps, service-area pages, or "the site". If a URL is being changed, this skill applies.
+description: The house method for all WordPress, Webflow, and Shopify development and technical SEO work. Use this skill for ANY task touching a website - audits, remediation plans, schema deployments (JSON-LD), migrations, page rebuilds, meta corrections, redirects, staging/live pushes, plugin updates, launch checklists, WP REST API scripts, or QA of a live site, or building/replicating a page from a design (Claude artifact, Claude Design template, mockup, wireframe, Figma, HTML template). Also use when the user mentions Divi, Rank Math, All-in-One WP Migration, staging, slugs, sitemaps, service-area pages, or "the site". If a URL is being changed, this skill applies.
 ---
 
 # WP Dev Engine
@@ -65,6 +65,23 @@ Callout and note boxes follow the same rule: an inline-styled `<div>` with an in
 Paste into the **Text** tab, never Visual. Clear WP Rocket cache after, then verify incognito.
 
 Verify before shipping: render the block in Playwright against a hostile stylesheet (ID selectors, `border:0!important`, `background:#e8e8e8!important`, `font-weight:400!important`, `list-style:none!important`) and screenshot it. Survives that, survives the client's theme.
+
+## Building a page from a design (artifact, mockup, Claude Design, Figma, HTML template)
+
+The design is the only visual spec. The build matches it section by section: layout, component type, column count, alignment, colours, container width and imagery. Matching copy is required but does not make the build done.
+
+- **No substitute style reference.** The homepage, a testbench or any other page fills in only what the design does not show (header, footer, global fonts). It never overrides something the design does show. If the design conflicts with the site (button colour, say), stop and log it as an open item with an owner. Never pick one silently.
+- **No "close enough" components.** A list stays a list, an overlapping card stays an overlapping card. Never convert a section to tabs, an accordion or a 3-column grid because the site already has that module. If Divi can't do the layout natively, use a Code module or CSS scoped to that section and note it in the handoff.
+- **Use the design's images.** Uploading the design's own assets is in scope for a design build. A "no new media" rule never blocks them unless Nate says so for that build. Never swap in a library image of different content.
+- **The builder does not redesign.** A meeting note like "if there's a better way to tell the story, do that" is permission for whoever owns UX (the designer), not the build.
+- **Section map first.** Before building, list every section in the design with its layout ("Services: 3 left-aligned rows, label left, copy right, divider lines") and build against that map.
+
+**Done check (the build is not done until this passes):**
+
+1. Full-page screenshots of the design and the build at 1440 and 390, side by side. Use Playwright; for a claude.ai artifact, read its HTML and render it locally.
+2. Mark each section PASS or ISSUE in the status matrix for layout, alignment, colours, imagery and width.
+3. Every ISSUE gets fixed, or logged as a deviation with the name of whoever approved it. No unapproved deviation ships.
+4. If the screenshots can't be taken, the build stays VERIFY, never PASS. Copy-string matches and padding checks never stand in for the visual comparison.
 
 ## Platform notes
 
